@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Refacciones Escolares</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase (Base de datos en línea) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <!-- Título y navegación -->
+        <header>
+            <h1>📦 Inventario de Refacciones Escolares</h1>
+            <p>Registro y consulta de materiales y repuestos escolares</p>
+        </header>
+
+        <!-- Formulario de registro -->
+        <section class="formulario-seccion">
+            <h2>Registrar Nueva Refacción</h2>
+            <form id="formRefacciones">
+                <div class="campo">
+                    <label>Nombre / Descripción:</label>
+                    <input type="text" id="nombre" placeholder="Ej: Tornillo, repuesto de silla, borrador" required>
+                </div>
+
+                <div class="campo">
+                    <label>Categoría / Grupo:</label>
+                    <input type="text" id="categoria" placeholder="Ej: Mobiliario, papelería, herramientas" required>
+                </div>
+
+                <div class="campo">
+                    <label>Dato adicional (Cantidad / Estado):</label>
+                    <input type="text" id="dato" placeholder="Ej: 25 unidades / Buen estado" required>
+                </div>
+
+                <div class="campo">
+                    <label>Observaciones:</label>
+                    <textarea id="observaciones" placeholder="Ubicación, características, detalles..." rows="3"></textarea>
+                </div>
+
+                <div class="botones">
+                    <button type="submit" class="btn-guardar">💾 Guardar Registro</button>
+                    <button type="button" id="btnConsultar" class="btn-consultar">📋 Ver Todos los Registros</button>
+                </div>
+
+                <!-- Mensajes de confirmación / error -->
+                <div id="mensaje" class="mensaje"></div>
+            </form>
+        </section>
+
+        <!-- Sección de consulta -->
+        <section class="consulta-seccion" id="seccionConsulta" style="display: none;">
+            <h2>📋 Registros Almacenados</h2>
+            <div id="tablaRegistros" class="tabla-contenedor"></div>
+        </section>
+    </div>
+
+    <!-- Código lógico -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
